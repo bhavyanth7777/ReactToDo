@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 
 // Import the app container component - Smart container
-import App from './src/App';
+import ReactToDo from './src/ReactToDo';
 
 
 AppRegistry.registerComponent('ReactToDo', () => ReactToDo);

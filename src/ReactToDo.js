@@ -5,7 +5,7 @@ import List from './List';
 import Input from './Input';
 import Title from './Title';
 
-export default class App extends Component {
+export default class ReactToDo extends Component {
     state = {
         todos: ['Click to remove', 'Learn React Native', 'Write Code', 'Ship App'],
     }
