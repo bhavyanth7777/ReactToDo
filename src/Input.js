@@ -3,6 +3,7 @@ import { TextInput, StyleSheet } from 'react-native';
 
 export default class Input extends Component {
 
+    // set application state
     state = {
         text: ''
     }
@@ -10,6 +11,7 @@ export default class Input extends Component {
     onChangeText = (text) => this.setState(text);
 
     onSubmitEditing = () => {
+        // put onSubmitEditing into props
         const {onSubmitEditing} = this.props;
         const {text} = this.state;
         if (!text) return // Dont submit if empty
