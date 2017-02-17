@@ -16,6 +16,7 @@ export default class Input extends Component {
         const {text} = this.state;
         if (!text) return // Dont submit if empty
 
+        // Call onSubmitEditing function when prop is passed
         onSubmitEditing(text)
         this.setState({text: ''})
     }
