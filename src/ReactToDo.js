@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-
+// Step 5. Import connect from React Redux 
+import {connect} from 'react-redux';
+import {actionCreators} from './todoListRedux';
 import List from './List';
 import Input from './Input';
 import Title from './Title';
 
-export default class ReactToDo extends Component {
-    state = {
-        todos: ['Click to remove', 'Learn React Native', 'Write Code', 'Ship App'],
-    }
 
+// Step 6. mapStateToProps
+const mapStateToProps = (state) => ({
+    todos: state.todos,
+})
+
+
+class ReactToDo extends Component {
+    
     onAddToDo = (text) => {
-        const {todos} = this.state;
-
-        this.setState({
-            todos: [text, ...todos],
-        });
+        const {dispatch} = this.props
+        // Step 7
+        dispatch(actionCreators.add(text))
     }
 
     onRemoveToDo = (index) => {
-        const {todos} = this.state;
+        const {dispatch} = this.props
+        dispatch(actionCreators.remove(index))
 
-        this.setState({
-            todos: todos.filter((todo, i) => i !== index),
-        });
+        
     }
 
     render(){
@@ -40,3 +43,6 @@ export default class ReactToDo extends Component {
         );
     }
 }
+
+// Step 8
+export default connect(mapStateToProps)(ReactToDo);
